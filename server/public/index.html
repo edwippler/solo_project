@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Wip It Up Meal Planner</title>
+  <link rel="stylesheet" href="/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script type="text/javascript" src="/vendor/angular.min.js"></script>
+  <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/factories/data.factory.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/home.controller.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/search.controller.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/schedule.controller.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/grocery.controller.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/saved.controller.js"></script>
+</head>
+  <body class="container">
+    <!-- <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header> -->
+    <nav ng-include="'views/templates/nav.html'"></nav>
+    <main ng-view></main>
+  </body>
+</html>
