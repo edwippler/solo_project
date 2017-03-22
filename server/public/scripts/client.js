@@ -29,11 +29,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
             controller: 'SavedController',
             controllerAs: 'saved'
         })
-        // .when ('/details', {
-        //     templateUrl: '/views/saved-recipe.html',
-        //     controller: 'SearchController',
-        //     controllerAs: 'details'
-        // })
+        .when ('/details', {
+            templateUrl: '/views/recipe-details.html',
+            controller: 'SearchController',
+            controllerAs: 'details'
+        })
         .otherwise ( {
             redirectTo: '/home'
         });

@@ -1,0 +1,15 @@
+.resultPic {
+  height: 100px;
+  width: 100px;
+}
+
+.detailPic {
+  max-width: 340px;
+  max-height: 400px;
+}
+
+.saveButton {
+  position: fixed;
+  top: auto;
+  right: auto;
+}

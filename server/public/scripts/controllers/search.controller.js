@@ -8,11 +8,18 @@ self.testMessage = 'This is the SearchController test message';
 
 self.search = {};
 self.returnedRecipes = DataFactory.results;
+self.recipeDetails = DataFactory.details;
 
 self.findRecipes = function (searchCriteria){
-  console.log('controller side log:', searchCriteria);
+  // console.log('controller side log:', searchCriteria);
    DataFactory.findRecipes(searchCriteria);
    $location.path('/search').replace();
+}
+
+self.moreDetails = function(recipeID) {
+  // console.log('ID of recipe selected:', recipeID);
+  DataFactory.moreDetails(recipeID);
+  $location.path('/details').replace();
 }
 
 

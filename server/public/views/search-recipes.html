@@ -1,13 +1,13 @@
-  <div class="">
-      <h4>Search Results:</h4>
+  <div class="display-inline">
+      <h5>Search Results:</h5>
       <input type="text" ng-model="search.search.criteria" placeholder="Change Search"/>
       <button type="button" name="button" ng-click="search.findRecipes(search.search.criteria)">Go</button>
   </div>
 
   <table>
     <tr ng-repeat="recipe in search.returnedRecipes.list.recipes">
-      <td><img src="{{recipe.image_url}}" alt="r{{ecipe.title}}"></td>
-      <td>{{recipe.title}}</td>
+      <td><img src="{{recipe.image_url}}" alt="{{recipe.title}}" class="img-thumbnail resultPic"></td>
+      <td ng-click="search.moreDetails(recipe.recipe_id)"><h4>{{recipe.title}}</h4></td>
     </tr>
   </table>
   <!-- {{search.returnedRecipes.list.recipes}} -->
