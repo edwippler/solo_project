@@ -1,4 +1,4 @@
-myApp.controller('SearchController', ['DataFactory', function(DataFactory) {
+myApp.controller('SearchController', ['DataFactory', '$rootElement', function(DataFactory, $rootElement) {
 
 console.log('Search controller running');
 
@@ -12,6 +12,7 @@ self.returnedRecipes = DataFactory.results;
 self.findRecipes = function (searchCriteria){
   console.log('controller side log:', searchCriteria);
    DataFactory.findRecipes(searchCriteria);
+   $location.path('/search').replace(); 
 }
 
 
