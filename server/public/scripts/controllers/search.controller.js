@@ -9,7 +9,9 @@ self.testMessage = 'This is the SearchController test message';
 self.search = {};
 self.returnedRecipes = DataFactory.results;
 
-self.findRecipes = function (searchCriteria){ DataFactory.findRecipes(searchCriteria);
+self.findRecipes = function (searchCriteria){
+  console.log('controller side log:', searchCriteria);
+   DataFactory.findRecipes(searchCriteria);
 }
 
 

@@ -1,23 +1,19 @@
-myApp.factory('DataFactory',['$http',function($http) {
+myApp.factory('DataFactory',['$http', '$routeParams', function($http, $routeParams) {
 console.log('Data Factory running');
 
 var results = { list: []};
 
 function findRecipes(searchCriteria) {
-  $http.get('/search', {params: {'param1': searchCriteria}}).then(function(response){
-        results.list = response.data;
+console.log('factory log before request:',searchCriteria);
+  $http({
+    method: 'GET',
+    url: '/search',
+    params: {'q': searchCriteria}
+  }).then(function(response){
+    console.log('factory log after request:',searchCriteria);
+    results.list = response.data;
   });
 }
-//   $http({
-//     method: 'GET',
-//     url: '/search',
-//     params: searchCriteria
-//   }).then(function(response){
-//     // console.log('response from get call', response);
-//     // console.log('data from response', response.data);
-//     results.list = response.data;
-//   });
-// }
 
   return {
     findRecipes: findRecipes,

@@ -4,16 +4,16 @@ var dotenv = require('dotenv').config();
 
 
 var baseURL = "http://food2fork.com/api/";
-
+var key = process.env.FOOD_2_FORK_KEY;
 
 router.get('/', function(req, res) {
-  var criteria = req.params.params;
+  var criteria = req.query;
   console.log(criteria);
   var options = {
     uri:'http://food2fork.com/api/search',
     qs:{
-      key: process.env.FOOD_2_FORK_KEY,
-      q: criteria
+      key: key,
+      q: criteria.q
     },
     headers:{
       'User-Agent': 'Request-Promise'
