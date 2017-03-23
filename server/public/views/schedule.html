@@ -1,8 +1,12 @@
 <!-- {{scd.schedule.user.schedule}} -->
 <div ng-repeat="days in scd.schedule.user.schedule">
   <div>
-    <label for="meal">{{days.day}}</label>
-    <input type="text" name="meal" placeholder="{{days.meal}}">
-    <button type="button" name="button">Save</button>
+    <label for="meal" data-index="">{{days.day}}</label>
+    <input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal">
+    <button type="button" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
   </div>
+  <!-- {{$index}} -->
+  <!-- {{days.meal}} -->
 </div>
+  <!-- {{scd.newMeal}} -->
+  <!-- {{scd.schedule.user._id}} -->

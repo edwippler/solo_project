@@ -11,5 +11,19 @@ User.findOne({}, function(err, result){
     res.send(result);
   }
 })
-})
+});
+
+router.put('/meals', function(req, res){
+  var newMeal = req.body;
+  console.log('hit the update meal route');
+  console.log(newMeal);
+  // db.getCollection('users').update({_id: ObjectId("58d3dd11d58df7af8836868e")}, {$set: {'schedule.5.meal': 'Fried Chicken'}})
+
+  // User.findByIdAndUpdate(
+  //   {_id: userID},
+  //   {
+  //     $set:
+  //   }
+  // )
+});
 module.exports = router;

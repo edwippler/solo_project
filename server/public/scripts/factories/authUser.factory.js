@@ -15,8 +15,20 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
     });
   }
 
+  function addMeal(item) {
+    console.log(item);
+    $http({
+      method:'PUT',
+      url: '/user/meals',
+      data: item
+    }).then(function(response){
+      getUserInfo();
+    })
+  }
+
 return{
-  profile: profile
+  profile: profile,
+  addMeal: addMeal
 }
 
 }]);

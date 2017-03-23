@@ -1,9 +1,13 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var bodyParser = require('body-parser');
 var recipeRoute = require('./routes/recipe.routes.js');
 var userRoute = require ('./routes/user.routes.js');
 var mongoConnection = require('./modules/mongo-connection');
+
+//middleware
+app.use(bodyParser.json());
 
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public')));
