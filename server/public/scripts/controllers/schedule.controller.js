@@ -1,6 +1,7 @@
-myApp.controller('ScheduleController',['DataFactory',function(DataFactory) {
+myApp.controller('ScheduleController',['AuthUserFactory',function(AuthUserFactory) {
 
   console.log('Schedule controller running');
   var self = this;
-  this.testMessage = 'This is the schedule test message';
+  self.testMessage = 'This is the schedule test message';
+  self.schedule = AuthUserFactory.profile;
 }]);

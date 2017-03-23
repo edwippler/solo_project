@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var recipeRoute = require('./routes/recipe.routes.js');
+var userRoute = require ('./routes/user.routes.js');
 var mongoConnection = require('./modules/mongo-connection');
 
 // Serve back static files
@@ -12,7 +13,8 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '.public/index.html'));
 })
 
-app.use('/search', recipeRoute); 
+app.use('/search', recipeRoute);
+app.use('/user', userRoute);
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), function() {

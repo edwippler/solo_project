@@ -11,5 +11,5 @@
 .saveButton {
   position: fixed;
   top: auto;
-  right: auto;
+  right: 50px;
 }

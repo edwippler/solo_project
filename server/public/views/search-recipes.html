@@ -6,8 +6,7 @@
 
   <table>
     <tr ng-repeat="recipe in search.returnedRecipes.list.recipes">
-      <td><img src="{{recipe.image_url}}" alt="{{recipe.title}}" class="img-thumbnail resultPic"></td>
+      <td ng-click="search.moreDetails(recipe.recipe_id)"><img src="{{recipe.image_url}}" alt="{{recipe.title}}" class="img-thumbnail resultPic"></td>
       <td ng-click="search.moreDetails(recipe.recipe_id)"><h4>{{recipe.title}}</h4></td>
     </tr>
   </table>
-  <!-- {{search.returnedRecipes.list.recipes}} -->

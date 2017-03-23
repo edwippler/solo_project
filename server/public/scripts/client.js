@@ -22,7 +22,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
         .when ('/schedule', {
             templateUrl: '/views/schedule.html',
             controller: 'ScheduleController',
-            controllerAs: 'schedule'
+            controllerAs: 'scd'
         })
         .when ('/saved', {
             templateUrl: '/views/saved-recipe.html',

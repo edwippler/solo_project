@@ -1,1 +1,1 @@
-module.exports = 'mongodb://localhost:27017/phi';
+module.exports = 'mongodb://localhost:27017/wipit';

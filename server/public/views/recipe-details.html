@@ -2,9 +2,8 @@
   <button class="saveButton" type="button" name="save">&#9734;</button>
   <img class="detailPic" src="{{details.recipeDetails.list.recipe.image_url}}" alt="{{details.recipeDetails.list.recipe.title}}">
   <h2>{{details.recipeDetails.list.recipe.title}}</h2>
-  <ul ng-repeat="item in details.recipeDetails.list.recipe.ingredients">
+  <ul ng-repeat="item in details.recipeDetails.list.recipe.ingredients track by $index">
     <li>{{item}}</li>
   </ul>
   <a href="{{details.recipeDetails.list.recipe.source_url}}" target="_blank">View full instructions from {{details.recipeDetails.list.recipe.publisher}}</a>
 </article>
-<!-- {{details.recipeDetails.list.recipe}} -->

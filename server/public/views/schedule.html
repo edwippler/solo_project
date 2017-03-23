@@ -1,1 +1,8 @@
-{{schedule.testMessage}}
+<!-- {{scd.schedule.user.schedule}} -->
+<div ng-repeat="days in scd.schedule.user.schedule">
+  <div>
+    <label for="meal">{{days.day}}</label>
+    <input type="text" name="meal" placeholder="{{days.meal}}">
+    <button type="button" name="button">Save</button>
+  </div>
+</div>
