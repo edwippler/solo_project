@@ -27,7 +27,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
         .when ('/saved', {
             templateUrl: '/views/saved-recipe.html',
             controller: 'SavedController',
-            controllerAs: 'saved'
+            controllerAs: 'svc'
         })
         .when ('/details', {
             templateUrl: '/views/recipe-details.html',

@@ -8,7 +8,8 @@ self.newItem = {};
 self.list = AuthUserFactory.profile;
 
 self.addItem = function(item) {
-  console.log(item);
+  console.log('controller log:', item);
+  AuthUserFactory.addGroceryItem(item);
 }
 
 

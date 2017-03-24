@@ -1,7 +1,14 @@
 <!--the hashbang stuff goes here-->
-<nav class="navbar fixed-top bg-faded" id="myTopnav">
-  <a class="navbar-brand" href="#!home"><h1>Wip It Up</h1></a>
-  <ul class=" navbar-nav list-unstyled">
+<nav ng-controller="HomeController as hc" class="navbar navbar-default static-top" id="myTopnav">
+  <div class="navbar-header">
+  <a class="navbar-brand" href="#!home">Wip It Up</a>
+  <button type="button" class="navbar-toggle"  data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle Navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+    </div>
+  <ul class="nav navbar-nav navbar-right list-unstyled collapse navbar-collapse">
     <li class="nav-item"><a class="nav-link" href="#!search">Search Recipes</a></li>
     <li class="nav-item"><a class="nav-link" href="#!schedule">Weekly Schedule</a></li>
     <li class="nav-item"><a class="nav-link" href="#!groceryList">Grocery List</a></li>

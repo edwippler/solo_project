@@ -8,6 +8,7 @@ var mongoConnection = require('./modules/mongo-connection');
 
 //middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Serve back static files
 app.use(express.static(path.join(__dirname, './public')));

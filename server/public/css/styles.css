@@ -8,6 +8,11 @@
   max-height: 400px;
 }
 
+.savedPic {
+  max-width: 160px;
+  max-height: 200px;
+}
+
 .saveButton {
   position: fixed;
   top: auto;

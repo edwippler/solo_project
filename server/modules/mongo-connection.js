@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var connectionString = require('./database-config');
 
+mongoose.set('debug', true);
+
 var connectToMongoDatabase = function(){
   mongoose.connect(connectionString);
 
@@ -13,4 +15,4 @@ var connectToMongoDatabase = function(){
   });
 }
 
-module.exports = {connect: connectToMongoDatabase}; 
+module.exports = {connect: connectToMongoDatabase};
