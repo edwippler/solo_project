@@ -43,7 +43,7 @@ router.put('/meals', function(req, res){
 });
 
 //update the schedule array of objects
-router.put('/reset', function(req, res){
+router.put('/resetMeals', function(req, res){
   console.log('hit reset route');
 var userID = req.body;
 var noSchedule = 7; //limits the number of days to 7
@@ -83,6 +83,29 @@ router.put('/grocery', function(req, res) {
     groceryObject.id,
     {
       $push: {list: groceryObject.name}
+    },
+  function(err, result){
+    if (err) {
+      console.log('error:', err);
+      res.sendStatus(418)
+    }else {
+      // console.log('RESULT:', result);
+      res.sendStatus(202);
+    }
+  }
+);
+});
+
+//clear grocery list
+router.put('/emptyList', function(req, res) {
+  console.log('hit groceryList put route');
+  console.log('here is the body ->', req.body);
+
+  var userObject = req.body;
+  User.findByIdAndUpdate(
+    userObject.id,
+    {
+      $set: {list: []}
     },
   function(err, result){
     if (err) {

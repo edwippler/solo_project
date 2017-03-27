@@ -29,7 +29,7 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
     userID = {id: id}
     $http({
       method: 'PUT',
-      url: '/user/reset',
+      url: '/user/resetMeals',
       data: userID
     }).then(function(response){
       getUserInfo();
@@ -48,11 +48,22 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
   });
 }
 
+function emptyGroceryList(userID) {
+  $http({
+    method: 'PUT',
+    url: '/user/emptyList',
+    data:userID
+  }).then(function(response){
+    getUserInfo();
+  });
+}
+
 return{
   profile: profile,
   addMeal: addMeal,
+  resetSchedule: resetSchedule,
   addGroceryItem: addGroceryItem,
-  resetSchedule: resetSchedule
+  emptyList: emptyGroceryList
 }
 
 }]);

@@ -3,8 +3,11 @@ myApp.controller('GroceryController', ['AuthUserFactory',function(AuthUserFactor
 console.log('Grocery controller running');
 
 var self = this;
-// self.testMessage = 'This is the GL test message';
+self.testMessage = '';
 self.list = AuthUserFactory.profile;
+// if (self.list.user.list.length === 0) {
+//   self.testMessage = 'High five! &#9995;'
+// }
 self.newItem = {};
 
 self.addItem = function(item) {
@@ -14,5 +17,8 @@ self.addItem = function(item) {
   self.newItem = {};
 }
 
+self.emptyList = function(){
+AuthUserFactory.emptyList({id: self.list.user._id})
+}
 
 }]);
