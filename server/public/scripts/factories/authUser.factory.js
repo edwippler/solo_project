@@ -71,11 +71,23 @@ function emptyGroceryList(userID) {
 }
 
 function saveRecipe(recipe) {
-  recipe.userID = profile.user._id
-  console.log(recipe);
+  recipe.userID = profile.user._id;
+  // console.log(recipe);
   $http({
     method: 'PUT',
     url: '/user/saved',
+    data: recipe
+  }).then(function(response){
+    getUserInfo();
+  });
+}
+
+function removeRecipe(recipe) {
+  recipe.userID = profile.user._id;
+  // console.log(recipe);
+  $http({
+    method: 'PUT',
+    url: '/user/unsave',
     data: recipe
   }).then(function(response){
     getUserInfo();
@@ -89,7 +101,8 @@ return{
   addGroceryItem: addGroceryItem,
   removeGroceryItem: removeGroceryItem,
   emptyList: emptyGroceryList,
-  saveRecipe: saveRecipe
+  saveRecipe: saveRecipe,
+  removeRecipe: removeRecipe
 }
 
 }]);

@@ -5,7 +5,8 @@ myApp.controller('SavedController',['AuthUserFactory',function(AuthUserFactory) 
 
   self.savedInfo = AuthUserFactory.profile;
   this.testMessage = 'This is the saved test message';
-  self.removeRecipe = function(item){
-    console.log('Adios to this recipe:', item);
+  self.removeRecipe = function(recipe){
+    // console.log('Adios to this recipe:', recipe);
+    AuthUserFactory.removeRecipe(recipe); 
   }
 }]);

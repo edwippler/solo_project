@@ -1,7 +1,7 @@
 var router = require('express').Router();
 var User = require('../models/user-model');
 
-//retrieving user information
+//retrieving user information from database
 router.get('/', function(req, res){
   console.log('hit my get user route');
   User.findOne({}, function(err, result){
@@ -74,7 +74,7 @@ res.sendStatus(200)
 //add item to grocery list
 router.put('/grocery', function(req, res) {
   console.log('hit groceryList put route');
-  console.log('here is the body ->', req.body);
+  // console.log('here is the body ->', req.body);
 
   var groceryObject = req.body;
   console.log(groceryObject);
@@ -117,8 +117,7 @@ router.put('/removeGrocery', function(req, res) {
 
 //clear grocery list
 router.put('/emptyList', function(req, res) {
-  console.log('hit groceryList put route');
-  console.log('here is the body ->', req.body);
+  console.log('hit clear groceryList route');
 
   var userObject = req.body;
   User.findByIdAndUpdate(
@@ -141,11 +140,10 @@ router.put('/emptyList', function(req, res) {
 // NOTE: beginning of saved recipe section //
 //add item to saved recipes
 router.put('/saved', function(req, res) {
-  console.log('hit groceryList put route');
-  console.log('here is the body ->', req.body);
+  console.log('hit save recipe put route');
 
   var recipeObject = req.body;
-  console.log(recipeObject);
+  // console.log(recipeObject);
   User.findByIdAndUpdate(
     recipeObject.userID,
     {
@@ -155,6 +153,29 @@ router.put('/saved', function(req, res) {
         sourceURL: recipeObject.sourceURL,
         recipeID: recipeObject.recipeID,
         ingredients: recipeObject.ingredients}}
+    },
+  function(err, result){
+    if (err) {
+      console.log('error:', err);
+      res.sendStatus(418)
+    }else {
+      res.sendStatus(202);
+    }
+  }
+);
+});
+
+// NOTE: beginning of saved recipe section //
+//add item to saved recipes
+router.put('/unsave', function(req, res) {
+  console.log('hit delete recipe route');
+
+  var recipeObject = req.body;
+  console.log(recipeObject);
+  User.findByIdAndUpdate(
+    recipeObject.userID,
+    {
+      $pull: {saved: {recipeID: recipeObject.recipeID}}
     },
   function(err, result){
     if (err) {
