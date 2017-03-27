@@ -48,6 +48,18 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
   });
 }
 
+  function removeGroceryItem(index) {
+    $http({
+      method: 'PUT',
+      url: '/user/removeGrocery',
+      data: index
+    }).then(function(response){
+      // console.log(response);
+      getUserInfo();
+    });
+  }
+
+
 function emptyGroceryList(userID) {
   $http({
     method: 'PUT',
@@ -63,6 +75,7 @@ return{
   addMeal: addMeal,
   resetSchedule: resetSchedule,
   addGroceryItem: addGroceryItem,
+  removeGroceryItem: removeGroceryItem,
   emptyList: emptyGroceryList
 }
 

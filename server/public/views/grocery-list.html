@@ -3,11 +3,16 @@
   <button type="submit" ng-click="grocery.addItem(grocery.newItem)">Add Item</button>
 </form>
 
+<!-- Will use flexbox to display full span-->
 <div class="text-left">
-<ul ng-repeat="items in grocery.list.user.list" class="list-unstyled">
-  <li>{{items}}<input type="checkbox" value="done"></li>
-</ul>
+<table>
+  <tr ng-repeat="items in grocery.list.user.list">
+    <td>{{items}}</td>
+    <td><input type="checkbox" value="done"></td>
+    <td><button type="button" ng-click="grocery.removeItem($index)">&olcross;</button></td>
+  </tr>
+</table>
 </div>
 <div class="text-center">
-  <button class="text-center" type="button" ng-click="grocery.emptyList()">Clear List</button>
+  <button class="text-center btn-info" type="button" ng-click="grocery.emptyList()">Clear List</button>
 </div>

@@ -5,9 +5,6 @@ console.log('Grocery controller running');
 var self = this;
 self.testMessage = '';
 self.list = AuthUserFactory.profile;
-// if (self.list.user.list.length === 0) {
-//   self.testMessage = 'High five! &#9995;'
-// }
 self.newItem = {};
 
 self.addItem = function(item) {
@@ -19,6 +16,12 @@ self.addItem = function(item) {
 
 self.emptyList = function(){
 AuthUserFactory.emptyList({id: self.list.user._id})
+}
+
+self.removeItem = function(index) {
+  var clicked = {index: index}
+  // console.log('index clicked:', index);
+  AuthUserFactory.removeGroceryItem(clicked);
 }
 
 }]);
