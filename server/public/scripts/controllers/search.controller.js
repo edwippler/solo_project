@@ -3,11 +3,15 @@ myApp.controller('SearchController', ['DataFactory', '$location', function(DataF
 console.log('Search controller running');
 
 var self = this;
-self.testMessage = 'This is the SearchController test message';
+self.errorMessage = '';
 // self.placeholder = DataFactory.holder;
 
 self.search = {};
 self.returnedRecipes = DataFactory.results;
+if (self.returnedRecipes.list.length === 0) {
+  self.errorMessage = 'Please check your search spelling or try changing the criteria.'
+}
+
 self.recipeDetails = DataFactory.details;
 
 self.findRecipes = function (searchCriteria){
