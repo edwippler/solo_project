@@ -1,7 +1,9 @@
   <div class="display-inline">
       <h5>Search Results:</h5>
+      <form>
       <input type="text" ng-model="search.search.criteria" placeholder="Change Search"/>
-      <button type="button" name="button" ng-click="search.findRecipes(search.search.criteria)">Go</button>
+      <button type="submit" name="button" ng-click="search.findRecipes(search.search.criteria)">Go</button>
+    </form>
   </div>
 
   <table>

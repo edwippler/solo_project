@@ -70,13 +70,26 @@ function emptyGroceryList(userID) {
   });
 }
 
+function saveRecipe(recipe) {
+  recipe.userID = profile.user._id
+  console.log(recipe);
+  $http({
+    method: 'PUT',
+    url: '/user/saved',
+    data: recipe
+  }).then(function(response){
+    getUserInfo();
+  });
+}
+
 return{
   profile: profile,
   addMeal: addMeal,
   resetSchedule: resetSchedule,
   addGroceryItem: addGroceryItem,
   removeGroceryItem: removeGroceryItem,
-  emptyList: emptyGroceryList
+  emptyList: emptyGroceryList,
+  saveRecipe: saveRecipe
 }
 
 }]);

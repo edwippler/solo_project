@@ -14,7 +14,7 @@ router.get('/', function(req, res){
   })
 });
 
-
+// NOTE: Beginning of shcedule section //
 //update the schedule array of objects
 router.put('/meals', function(req, res){
   var newMeal = req.body;
@@ -68,9 +68,9 @@ dayIndex['schedule.'+ i +'.meal'] = '';
 );
 }
 res.sendStatus(200)
-});
+});//end of schedule section
 
-
+// NOTE: beginning of grocery section //
 //add item to grocery list
 router.put('/grocery', function(req, res) {
   console.log('hit groceryList put route');
@@ -125,6 +125,36 @@ router.put('/emptyList', function(req, res) {
     userObject.id,
     {
       $set: {list: []}
+    },
+  function(err, result){
+    if (err) {
+      console.log('error:', err);
+      res.sendStatus(418)
+    }else {
+      res.sendStatus(202);
+    }
+  }
+);
+});//end of grocery section
+
+
+// NOTE: beginning of saved recipe section //
+//add item to saved recipes
+router.put('/saved', function(req, res) {
+  console.log('hit groceryList put route');
+  console.log('here is the body ->', req.body);
+
+  var recipeObject = req.body;
+  console.log(recipeObject);
+  User.findByIdAndUpdate(
+    recipeObject.userID,
+    {
+      $push: {saved: {
+        imageURL: recipeObject.imageURL,
+        title: recipeObject.title,
+        sourceURL: recipeObject.sourceURL,
+        recipeID: recipeObject.recipeID,
+        ingredients: recipeObject.ingredients}}
     },
   function(err, result){
     if (err) {
