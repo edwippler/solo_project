@@ -15,13 +15,23 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
   }
 
   function addMeal(thing) {
-    console.log(thing);
+    // console.log(thing);
     $http({
       method:'PUT',
       url: '/user/meals',
       data: thing
     }).then(function(response){
-      console.log(response);
+      getUserInfo();
+    })
+  }
+
+  function resetSchedule(id) {
+    userID = {id: id}
+    $http({
+      method: 'PUT',
+      url: '/user/reset',
+      data: userID
+    }).then(function(response){
       getUserInfo();
     })
   }
@@ -41,7 +51,8 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
 return{
   profile: profile,
   addMeal: addMeal,
-  addGroceryItem: addGroceryItem
+  addGroceryItem: addGroceryItem,
+  resetSchedule: resetSchedule
 }
 
 }]);

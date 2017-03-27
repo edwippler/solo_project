@@ -6,13 +6,20 @@ var daySchema = new Schema({
   day: String,
   meal: String
 });
+var savedSchema = new Schema({
+  imageURL: String,
+  title: String,
+  sourceURL: String,
+  recipeID: String,
+  ingredients: [String]
+});
 mongoose.model(
   'User',
   new Schema({
     "email":String,
     "list": { any: [String]},
     "schedule": [daySchema],
-    "saved": {ofMixed:[Schema.Types.Mixed]}
+    "saved": [savedSchema]
   },
   {
     collection: 'users'

@@ -19,6 +19,6 @@ myApp.controller('ScheduleController',['AuthUserFactory',function(AuthUserFactor
   }
 
   self.clearList = function (){
-    console.log('No more food for you!');
+  AuthUserFactory.resetSchedule(self.schedule.user._id);
   }
 }]);

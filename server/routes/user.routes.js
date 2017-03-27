@@ -20,14 +20,11 @@ router.put('/meals', function(req, res){
   var dayIndex = {};
   dayIndex['schedule.'+newMeal.index+'.meal'] = newMeal.meal
   console.log('hit the update meal route');
-  // console.log(dayIndex);
-  // console.log(newMeal);
 
   // NOTE: test query run on RoboMongo
   // db.getCollection('users').update({_id: ObjectId("58d3dd11d58df7af8836868e")}, {$set: {'schedule.5.meal': 'Fried Chicken'}})
 
 
-  // NOTE: $set not persisting in database --> defaulting to the .then of getting existing plans.
   User.findByIdAndUpdate(
     newMeal.id,
     {
@@ -43,6 +40,38 @@ router.put('/meals', function(req, res){
     }
   }
 );
+});
+
+//update the schedule array of objects
+router.put('/reset', function(req, res){
+  console.log('hit reset route');
+var userID = req.body;
+// console.log(userID);
+var schedule = 7;
+var dayIndex = {};
+
+for (var i = 0; i < schedule ; i++) {
+dayIndex['schedule.'+ i +'.meal'] = '';
+  // NOTE: test query run on RoboMongo
+  // db.getCollection('users').update({_id: ObjectId("58d3dd11d58df7af8836868e")}, {$set: {'schedule.5.meal': 'Fried Chicken'}})
+
+
+  User.findByIdAndUpdate(
+    userID.id,
+    {
+      $set: dayIndex
+    },
+  function(err, result){
+    if (err) {
+      console.log('error:', err);
+      res.sendStatus(418)
+    }else {
+      // console.log('RESULT:', result);
+    }
+  }
+);
+}
+res.sendStatus(200)
 });
 
 //add item to grocery list
