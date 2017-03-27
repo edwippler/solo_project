@@ -18,9 +18,9 @@ self.emptyList = function(){
 AuthUserFactory.emptyList({id: self.list.user._id})
 }
 
-self.removeItem = function(index) {
-  var clicked = {index: index}
-  // console.log('index clicked:', index);
+self.removeItem = function(item) {
+  var clicked = {itemToRemove: item, id: self.list.user._id}
+  // console.log('item clicked:', item);
   AuthUserFactory.removeGroceryItem(clicked);
 }
 

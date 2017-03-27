@@ -48,11 +48,11 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
   });
 }
 
-  function removeGroceryItem(index) {
+  function removeGroceryItem(item) {
     $http({
       method: 'PUT',
       url: '/user/removeGrocery',
-      data: index
+      data: item
     }).then(function(response){
       // console.log(response);
       getUserInfo();

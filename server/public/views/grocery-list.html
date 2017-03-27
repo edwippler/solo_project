@@ -9,7 +9,7 @@
   <tr ng-repeat="items in grocery.list.user.list">
     <td>{{items}}</td>
     <td><input type="checkbox" value="done"></td>
-    <td><button type="button" ng-click="grocery.removeItem($index)">&olcross;</button></td>
+    <td><button type="button" ng-click="grocery.removeItem(items)">&olcross;</button></td>
   </tr>
 </table>
 </div>

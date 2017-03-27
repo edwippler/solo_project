@@ -97,22 +97,22 @@ router.put('/grocery', function(req, res) {
 //remove grocery list item
 router.put('/removeGrocery', function(req, res) {
   console.log('hit grocery List remove route');
-  var index = req.body.index;
-  console.log(index);
-//   User.findByIdAndUpdate(
-//     userObject.id,
-//     {
-//       $pop: {list: []}
-//     },
-//   function(err, result){
-//     if (err) {
-//       console.log('error:', err);
-//       res.sendStatus(418)
-//     }else {
-//       res.sendStatus(202);
-//     }
-//   }
-// );
+  var removeObject = req.body;
+  console.log(removeObject);
+  User.findByIdAndUpdate(
+    removeObject.id,
+    {
+      $pull: {list: removeObject.itemToRemove}
+    },
+  function(err, result){
+    if (err) {
+      console.log('error:', err);
+      res.sendStatus(418)
+    }else {
+      res.sendStatus(202);
+    }
+  }
+);
 });
 
 //clear grocery list
