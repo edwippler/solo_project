@@ -2,10 +2,11 @@
 <h4><input type="text" placeholder="Enter new list item" ng-model="grocery.newItem.name"/></h4>
 <button type="button" ng-click="grocery.addItem(grocery.newItem)">Add Item</button>
 </div>
-<p>{{grocery.newItem}}</p>
+<!-- <p>{{grocery.newItem}}</p> -->
 <div class="text-left">
 <ul ng-repeat="items in grocery.list.user.list" class="list-unstyled">
   <li>{{items}}<input type="checkbox" value="done"></li>
 </ul>
-  {{grocery.list.user.list}}
+  <!-- {{grocery.list.user.list}}
+    {{grocery.list.user._id}} -->
 </div>

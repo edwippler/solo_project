@@ -37,13 +37,13 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
   }
 
   function addGroceryItem(someNewItem) {
-    console.log('factory log:', someNewItem);
+    // console.log('factory log:', someNewItem);
   $http({
     method: 'PUT',
     url: '/user/grocery',
     data: someNewItem
   }).then(function(response){
-    console.log(response);
+    // console.log(response);
     getUserInfo();
   });
 }

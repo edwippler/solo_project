@@ -79,23 +79,21 @@ router.put('/grocery', function(req, res) {
 
   var groceryObject = req.body;
   console.log(groceryObject);
-  // User.findByIdAndUpdate(
-  //   newMeal.id,
-  //   {
-  //     $set: dayIndex
-  //   },
-  // function(err, result){
-  //   if (err) {
-  //     console.log('error:', err);
-  //     res.sendStatus(418)
-  //   }else {
-  //     // console.log('RESULT:', result);
-  //     res.sendStatus(202);
-  //   }
-  // }
-// );
-
-
+  User.findByIdAndUpdate(
+    groceryObject.id,
+    {
+      $push: {list: groceryObject.name}
+    },
+  function(err, result){
+    if (err) {
+      console.log('error:', err);
+      res.sendStatus(418)
+    }else {
+      // console.log('RESULT:', result);
+      res.sendStatus(202);
+    }
+  }
+);
 });
 
 module.exports = router;
