@@ -1,7 +1,16 @@
-myApp.factory('AuthUserFactory', ['$http', function($http) {
+myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $firebaseAuth) {
   console.log('AuthUserFactory running');
 
+  var auth = $firebaseAuth();
   var profile = {user: []};
+
+  function logIn() {
+    auth.$signInWithPopup('google').then(function(firebaseUser){
+      console.log('Firebase Authenticated as: ', firebaseUser.user.displayName);
+    }).catch(function(error){
+      console.log('Authentication failed: ', error);
+    });
+  }
 
   getUserInfo();
 
@@ -125,6 +134,7 @@ myApp.factory('AuthUserFactory', ['$http', function($http) {
 
   return{
     profile: profile,
+    logIn: logIn,
     addMeal: addMeal,
     resetSchedule: resetSchedule,
     addGroceryItem: addGroceryItem,

@@ -1,8 +1,17 @@
-myApp.controller('SearchController', ['DataFactory', 'AuthUserFactory', '$location', function(DataFactory, AuthUserFactory, $location) {
+myApp.controller('SearchController', ['DataFactory', 'AuthUserFactory', '$location', '$firebaseAuth', function(DataFactory, AuthUserFactory, $location, $firebaseAuth) {
 
 console.log('Search controller running');
-
 var self = this;
+
+self.logIn = function(){
+  AuthUserFactory.logIn();
+  // auth.$signInWithPopup('google').then(function(firebaseUser){
+  //   console.log('Firebase Authenticated as: ', firebaseUser.user.displayName);
+  // }).catch(function(error){
+  //   console.log('Authentication failed: ', error);
+  // });
+};
+
 self.errorMessage = '';
 // self.placeholder = DataFactory.holder;
 
@@ -36,7 +45,7 @@ self.saveRecipe = function(recipe) {
     ingredients: recipe.ingredients
   };
   // console.log(saveInfo);
-  AuthUserFactory.saveRecipe(saveInfo); 
+  AuthUserFactory.saveRecipe(saveInfo);
 }
 
 

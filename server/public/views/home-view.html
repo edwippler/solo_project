@@ -1,10 +1,11 @@
-<body>
-  <form>
-  <h3><input type="text" ng-model="home.search.criteria" placeholder="search by ingredient or recipe name" class="col-md-4"></h3>
-  <button type="submit" name="button" ng-click="home.findRecipes(home.search.criteria)">Let's Get Cooking!</button>
-  <p>*multiple ingredients must be separated by a comma</p>
-</form>
-
-  <button type="button" name="button">Connect with Google</button>
-
-</body>
+<div class="card text-center">
+  <div class="card-block">
+    <form>
+      <h4><input type="text" ng-model="home.search.criteria" placeholder="search by ingredient or recipe name" class="card-title homeSearch"></h4>
+      <button type="submit" name="button" ng-click="home.findRecipes(home.search.criteria)">Let's Get Cooking!</button>
+      <p class="card-text">*multiple ingredients must be separated by a comma</p>
+      <img src="https://static.pexels.com/photos/4626/food-plate-morning-breakfast.jpg" alt="happy plate" class="card-img detailPic"> <!-- stock photo image sourced from pexels.com-->
+    </form>
+    <button type="button" name="button" class="card-footer" ng-click="home.logIn()">Connect with Google</button>
+  </div>
+</div>
