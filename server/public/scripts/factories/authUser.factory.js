@@ -38,15 +38,25 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
   }
 
   function addMeal(thing) {
+    var firebaseUser = auth.$getAuth();
     // console.log(thing);
+    if (firebaseUser) {
+      firebaseUser.getToken().then(function(idToken){
     $http({
       method:'PUT',
       url: '/user/meals',
-      data: thing
+      data: thing,
+      headers: {
+        id_token: idToken
+      }
     }).then(function(response){
       getUserInfo();
-    })
-  }
+    });
+  });
+}else {
+  console.log('Please log to access info');
+}
+}
 
   function resetSchedule(id) {
     userID = {id: id}

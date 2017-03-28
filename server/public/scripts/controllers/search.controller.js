@@ -9,7 +9,7 @@ self.errorMessage = '';
 self.search = {};
 self.returnedRecipes = DataFactory.results;
 if (self.returnedRecipes.list.length === 0) {
-  self.errorMessage = 'Please check your search spelling or try changing the criteria.'
+  self.errorMessage = 'Please check your search spelling or try changing the criteria if you want more results.'
 }
 
 self.recipeDetails = DataFactory.details;
