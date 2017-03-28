@@ -3,15 +3,6 @@ myApp.controller('SearchController', ['DataFactory', 'AuthUserFactory', '$locati
 console.log('Search controller running');
 var self = this;
 
-self.logIn = function(){
-  AuthUserFactory.logIn();
-  // auth.$signInWithPopup('google').then(function(firebaseUser){
-  //   console.log('Firebase Authenticated as: ', firebaseUser.user.displayName);
-  // }).catch(function(error){
-  //   console.log('Authentication failed: ', error);
-  // });
-};
-
 self.errorMessage = '';
 // self.placeholder = DataFactory.holder;
 

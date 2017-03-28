@@ -31,7 +31,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
         })
         .when ('/details', {
             templateUrl: '/views/recipe-details.html',
-            controller: 'SearchController',
+            controller: 'DetailsController',
             controllerAs: 'details'
         })
         .otherwise ( {

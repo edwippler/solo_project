@@ -1,4 +1,4 @@
-myApp.controller('HomeController', ['DataFactory', 'AuthUserFactory', '$location', '$firebaseAuth', function(DataFactory, AuthUserFactory, $location, $firebaseAuth){
+myApp.controller('HomeController', ['DataFactory', 'AuthUserFactory', '$location', '$firebaseAuth', '$routeParams', function(DataFactory, AuthUserFactory, $location, $firebaseAuth, $routeParams){
   var self = this;
   // console.log('home controller running');
   self.search = {};

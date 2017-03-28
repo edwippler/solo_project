@@ -33,6 +33,7 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
   });
   }else {
     console.log('Please log in to get access to info.');
+    // $location.path('/home').replace();
   }
   }
 
