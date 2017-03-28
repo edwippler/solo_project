@@ -1,14 +1,14 @@
 <!--the hashbang stuff goes here-->
-<nav ng-controller="HomeController as hc" class="navbar navbar-default static-top" id="myTopnav">
+<nav ng-controller="NavController as nc" class="navbar navbar-default static-top" id="myTopnav">
   <div class="navbar-header">
   <a class="navbar-brand" href="#!home">Wip It Up</a>
-  <button type="button" class="navbar-toggle" ng-click="hc.toggleNav()"><span class="sr-only">Toggle Navigation</span>
+  <button type="button" class="navbar-toggle" ng-click="nc.toggleNav()"><span class="sr-only">Toggle Navigation</span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
     </div>
-  <ul class="nav navbar-nav navbar-right list-unstyled navbar-collapse" uib-collapse="hc.isCollapsed">
+  <ul class="nav navbar-nav navbar-right list-unstyled navbar-collapse" uib-collapse="nc.isCollapsed">
     <li class="nav-item"><a class="nav-link" href="#!search">Search Recipes</a></li>
     <li class="nav-item"><a class="nav-link" href="#!schedule">Weekly Schedule</a></li>
     <li class="nav-item"><a class="nav-link" href="#!groceryList">Grocery List</a></li>

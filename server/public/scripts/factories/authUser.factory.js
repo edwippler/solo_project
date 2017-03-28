@@ -12,15 +12,28 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
     });
   }
 
-  getUserInfo();
+  auth.$onAuthStateChanged(function(firebaseUser){
+    getUserInfo();
+  })
+
 
   function getUserInfo() {
+    var firebaseUser = auth.$getAuth(); //will be necessary for other $http requests
+    if (firebaseUser) {
+      firebaseUser.getToken().then(function(idToken){
     $http({
       method: 'GET',
-      url: '/user'
+      url: '/user',
+      headers: {
+        id_token: idToken
+      }
     }).then(function(response){
       profile.user = response.data;
     });
+  });
+  }else {
+    console.log('Please log in to get access to info.');
+  }
   }
 
   function addMeal(thing) {
