@@ -21,20 +21,20 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
     var firebaseUser = auth.$getAuth(); //will be necessary for other $http requests
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
-    $http({
-      method: 'GET',
-      url: '/user',
-      headers: {
-        id_token: idToken
-      }
-    }).then(function(response){
-      profile.user = response.data;
-    });
-  });
-  }else {
-    console.log('Please log in to get access to info.');
-    // $location.path('/home').replace();
-  }
+        $http({
+          method: 'GET',
+          url: '/user',
+          headers: {
+            id_token: idToken
+          }
+        }).then(function(response){
+          profile.user = response.data;
+        });
+      });
+    }else {
+      console.log('Please log in to get access to info.');
+      // $location.path('/home').replace();
+    }
   }
 
   function addMeal(thing) {
@@ -42,31 +42,41 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
     // console.log(thing);
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
-    $http({
-      method:'PUT',
-      url: '/user/meals',
-      data: thing,
-      headers: {
-        id_token: idToken
-      }
-    }).then(function(response){
-      getUserInfo();
-    });
-  });
-}else {
-  console.log('Please log to access info');
-}
-}
+        $http({
+          method:'PUT',
+          url: '/user/meals',
+          data: thing,
+          headers: {
+            id_token: idToken
+          }
+        }).then(function(response){
+          getUserInfo();
+        });
+      });
+    }else {
+      console.log('Please log to access info');
+    }
+  }
 
   function resetSchedule(id) {
-    userID = {id: id}
-    $http({
-      method: 'PUT',
-      url: '/user/resetMeals',
-      data: userID
-    }).then(function(response){
-      getUserInfo();
-    })
+    var firebaseUser = auth.$getAuth();
+    if (firebaseUser) {
+      firebaseUser.getToken().then(function(idToken){
+        userID = {id: id}
+        $http({
+          method: 'PUT',
+          url: '/user/resetMeals',
+          data: userID,
+          headers: {
+            id_token: idToken
+          }
+        }).then(function(response){
+          getUserInfo();
+        });
+      });
+    }else{
+      console.log('No registered user is logged in.');
+    }
   }
 
   function addGroceryItem(someNewItem) {
