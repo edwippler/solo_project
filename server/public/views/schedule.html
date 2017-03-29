@@ -2,12 +2,18 @@
 <div ng-repeat="days in scd.schedule.user.schedule">
   <div>
     <label for="meal" data-index="">{{days.day}}</label>
-    <input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal">
-    <button type="button" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
+    <span editable-text="days.meal" e-form="textBtnForm">
+      {{ days.meal || 'empty' }}
+    </span>
+    <button class="btn btn-default" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
+      edit
+    </button>
   </div>
-  <!-- {{$index}} -->
-  <!-- {{days.meal}} -->
 </div>
 <h4 ng-click="scd.clearList()">Start New Schedule</h4>
-  <!-- {{scd.newMeal}} -->
-  <!-- {{scd.schedule.user._id}} -->
+<!-- {{scd.newMeal}} -->
+<!-- {{scd.schedule.user._id}} -->
+
+<!-- NOTE: original input fields replacd by xeditable -->
+<!-- <input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal">
+<button type="button" name="button" ng-click="scd.addMeal(days, $index)">Save</button> -->
