@@ -80,90 +80,128 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
   }
 
   function addGroceryItem(someNewItem) {
-    // console.log('factory log:', someNewItem);
-    $http({
-      method: 'PUT',
-      url: '/user/grocery',
-      data: someNewItem
-    }).then(function(response){
-      // console.log(response);
-      getUserInfo();
-    });
+    var firebaseUser = auth.$getAuth();
+    if (firebaseUser) {
+      firebaseUser.getToken().then(function(idToken){
+        // console.log('factory log:', someNewItem);
+        $http({
+          method: 'PUT',
+          url: '/user/grocery',
+          data: someNewItem,
+          headers: {
+            id_token: idToken
+          }
+        }).then(function(response){
+          // console.log(response);
+          getUserInfo();
+        });
+      });
+    }else {
+      console.log('No registered user is logged in.');
+    }
   }
 
   function removeGroceryItem(item) {
-    $http({
-      method: 'PUT',
-      url: '/user/removeGrocery',
-      data: item
-    }).then(function(response){
-      // console.log(response);
-      getUserInfo();
-    });
+    var firebaseUser = auth.$getAuth();
+    if (firebaseUser) {
+      firebaseUser.getToken().then(function(idToken){
+        $http({
+          method: 'PUT',
+          url: '/user/removeGrocery',
+          data: item,
+          headers: {
+            id_token: idToken
+          }
+        }).then(function(response){
+          // console.log(response);
+          getUserInfo();
+        });
+      });
+    }else {
+      console.log('No registered user logged in.');
+    }
   }
 
 
   function emptyGroceryList(userID) {
-    swal({
-      title: "Are you sure?",
-      text: "Are you sure that you want to start a new grocery list?",
-      type: "warning",
-      showCancelButton: true,
-      closeOnConfirm: false,
-      confirmButtonText: "Yes, start new list!",
-      confirmButtonColor: "#ec6c62"
-    },
-    function(){
-      $http({
-        method: 'PUT',
-        url: '/user/emptyList',
-        data:userID
-      }).then(function(response){
-        getUserInfo();
-        swal("Deleted!", "Your recipe was successfully deleted!", "success");
-      }).error(function(data) {
-        swal("Oops", "We couldn't connect to the server!", "error");
-      });
-    });
+    var firebaseUser = auth.$getAuth();
+    if (firebaseUser) {
+      firebaseUser.getToken().then(function(idToken){
+          $http({
+            method: 'PUT',
+            url: '/user/emptyList',
+            data:userID,
+            headers: {
+              id_token: idToken
+            }
+          }).then(function(response){
+            getUserInfo();
+            swal("Deleted!", "Your recipe was successfully deleted!", "success");
+          }).catch(function(error) {
+            swal("Oops", "We couldn't connect to the server!", "error");
+          });
+        });
+    }else {
+      console.log('Nope!');
+    }
   }
 
   function saveRecipe(recipe) {
     recipe.userID = profile.user._id;
-    // console.log(recipe);
-    $http({
-      method: 'PUT',
-      url: '/user/saved',
-      data: recipe
-    }).then(function(response){
-      getUserInfo();
-      swal("Saved!", "Your recipe was successfully saved!", "success");
-    });
+    var firebaseUser = auth.$getAuth();
+    if (firebaseUser) {
+      firebaseUser.getToken().then(function(idToken){
+        // console.log(recipe);
+        $http({
+          method: 'PUT',
+          url: '/user/saved',
+          data: recipe,
+          headers: {
+            id_token: idToken
+          }
+        }).then(function(response){
+          getUserInfo();
+          swal("Saved!", "Your recipe was successfully saved!", "success");
+        });
+      });
+    }else {
+      console.log('Nope!');
+    }
   }
 
   function removeRecipe(recipe) {
     recipe.userID = profile.user._id;
-    swal({
-      title: "Are you sure?",
-      text: "Are you sure that you want to remove this recipe?",
-      type: "warning",
-      showCancelButton: true,
-      closeOnConfirm: false,
-      confirmButtonText: "Yes, delete it!",
-      confirmButtonColor: "#ec6c62"
-    },
-    function() {
-      // console.log(recipe);
-      $http({
-        method: 'PUT',
-        url: '/user/unsave',
-        data: recipe
-      }).then(function(response){
-        getUserInfo();
-        swal("Deleted!", "Your recipe was successfully deleted!", "success");
-      }).error(function(data) {
-        swal("Oops", "We couldn't connect to the server!", "error");
+    var firebaseUser = auth.$getAuth();
+    if (firebaseUser) {
+      firebaseUser.getToken().then(function(idToken){
+        swal({
+          title: "Are you sure?",
+          text: "Are you sure that you want to remove this recipe?",
+          type: "warning",
+          showCancelButton: true,
+          closeOnConfirm: false,
+          confirmButtonText: "Yes, delete it!",
+          confirmButtonColor: "#ec6c62"
+        },
+        function() {
+          $http({
+            method: 'PUT',
+            url: '/user/unsave',
+            data: recipe,
+            headers: {
+              id_token: idToken
+            }
+          }).then(function(response){
+            getUserInfo();
+            swal("Deleted!", "Your recipe was successfully deleted!", "success");
+          }).catch(function(error) {
+            swal("Oops", "We couldn't connect to the server!", "error");
+          });
+        });
       });
-    });
+    } else {
+      console.log('No way, Jose!');
+    }
   }
 
   return{

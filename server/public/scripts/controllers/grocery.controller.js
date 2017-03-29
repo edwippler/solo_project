@@ -15,7 +15,18 @@ self.addItem = function(item) {
 }
 
 self.emptyList = function(){
+  swal({
+    title: "Are you sure?",
+    text: "Are you sure that you want to start a new grocery list?",
+    type: "warning",
+    showCancelButton: true,
+    closeOnConfirm: false,
+    confirmButtonText: "Yes, start new list!",
+    confirmButtonColor: "#ec6c62"
+  },
+  function(){
 AuthUserFactory.emptyList({id: self.list.user._id})
+  });
 }
 
 self.removeItem = function(item) {
