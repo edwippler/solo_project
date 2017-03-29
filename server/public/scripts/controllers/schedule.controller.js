@@ -11,7 +11,7 @@ myApp.controller('ScheduleController',['AuthUserFactory',function(AuthUserFactor
     // console.log('The plan for', plan.day, 'is', plan.meal, 'at index', index);
     var thing = {
       meal: plan.meal,
-      day: plan.day,
+      // day: plan.day,
       index: index,
       id: self.schedule.user._id
     };

@@ -1,4 +1,4 @@
-myApp.controller('NavController', function() {
+myApp.controller('NavController', ['AuthUserFactory', function(AuthUserFactory) {
   var self = this;
   // console.log('nav controller running');
   self.testMessage = 'Hello World, this is the home controller test message';
@@ -8,6 +8,7 @@ self.toggleNav = function(){
   self.isCollapsed = !self.isCollapsed;
 }
 
-
-
-}); // end controller code block
+  self.logOut = function() {
+    AuthUserFactory.logOut();
+  }
+}]); // end controller code block
