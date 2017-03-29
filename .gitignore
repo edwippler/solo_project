@@ -3,4 +3,3 @@ node_modules/
 npm-debug.log
 firebase-service-account.json
 server/.DS_Store
-server/public/scripts/config.js

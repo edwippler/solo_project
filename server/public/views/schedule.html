@@ -1,10 +1,10 @@
 <!-- {{scd.schedule.user.schedule}} -->
-<div ng-repeat="days in scd.schedule.user.schedule">
-  <table class="table table-sm">
+<div ng-repeat="days in scd.schedule.user.schedule" class="container">
+  <table class="table">
     <tr>
-      <td><label for="meal" data-index="">{{days.day}}</label></td>
-      <td><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"></td>
-      <td><button type="button" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
+      <td class="col-xs-4"><label for="meal" data-index="">{{days.day}}</label></td>
+      <td class="col-xs-6"><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal" class="mealInput"></td>
+      <td class="col-xs-2"><button type="button" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
     <tr>
   </table>
 </div>
