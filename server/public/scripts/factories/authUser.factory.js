@@ -7,6 +7,7 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
   function logIn() {
     auth.$signInWithPopup('google').then(function(firebaseUser){
       console.log('Firebase Authenticated as: ', firebaseUser.user.displayName);
+      swal('Welcome '+ firebaseUser.user.displayName +'!');
     }).catch(function(error){
       console.log('Authentication failed: ', error);
     });
