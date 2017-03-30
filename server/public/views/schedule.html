@@ -1,7 +1,7 @@
 <article ng-if="scd.schedule.user.email != null">
 <div ng-repeat="days in scd.schedule.user.schedule" class="container">
   <form>
-  <table class="table">
+  <table class="table col-xs-12">
     <tr>
       <td class="col-xs-4"><label for="meal" data-index="">{{days.day}}</label></td>
       <td class="col-xs-6"><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"  class="mealInput"></td>
