@@ -28,7 +28,12 @@
 }
 
 .footer {
-  padding: 50px;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.loginButton{
+  margin-top: 30px;
 }
 
 button{

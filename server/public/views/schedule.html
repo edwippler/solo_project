@@ -1,4 +1,4 @@
-<!-- {{scd.schedule.user.schedule}} -->
+<article ng-if="scd.schedule.user.email != null">
 <div ng-repeat="days in scd.schedule.user.schedule" class="container">
   <form>
   <table class="table">
@@ -11,6 +11,11 @@
   <form>
 </div>
 <h4 ng-click="scd.clearList()">Start New Schedule</h4>
+</article>
+
+<div ng-if="scd.schedule.user.email == null">
+  <h3>Sorry, login required to access this feature!</h3>
+</div>
 <!-- {{scd.schedule.user._id}} -->
 
 
