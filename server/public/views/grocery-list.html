@@ -5,13 +5,21 @@
 </form>
 
 <!-- Will use flexbox to display full span-->
-<div class="text-left">
+<div class="text-left groceryList">
 <table>
+  <thead>
+    <tr>
+      <th><!--spacer tag --></th>
+      <th>Check Items as Completed:</th>
+    </tr>
+  </thead>
+  <tbody>
   <tr ng-repeat="items in grocery.list.user.list">
-    <td>{{items}}</td>
     <td><input type="checkbox" value="done"></td>
-    <td><button type="button" ng-click="grocery.removeItem(items)">&olcross;</button></td>
+    <td><p class="listItem">{{items}}</p></td>
+    <td><p ng-click="grocery.removeItem(items)">&#10060;</p></td>
   </tr>
+    </tbody>
 </table>
 </div>
 <div class="text-center">
@@ -24,3 +32,6 @@
   <h3>No soup for you!</h3>
   <h4>Login required to access this feature.</h4>
 </div>
+
+<!-- NOTE:  -->
+<!-- <button type="button" ng-click="grocery.removeItem(items)" class="delButton"></button> -->

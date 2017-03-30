@@ -1,1 +1,1 @@
-module.exports = process.env.MONGODB_URI || 'mongodb://localhost:27017/wipit';
+module.exports = process.env.MONGODB_URI ;//|| 'mongodb://localhost:27017/wipit';

@@ -14,9 +14,18 @@
 }
 
 .saveButton {
-  position: fixed;
+  float: right;
+  position: relative;
   top: auto;
   right: 50px;
+}
+
+.saveButton:hover{
+  color: goldenrod;
+}
+
+.delButton {
+  text-align: center;
 }
 
 .homeSearch {
@@ -29,7 +38,10 @@
 
 .footer {
   margin-top: 50px;
-  padding: 10px;
+  padding: 3px;
+  position: relative;
+  bottom: 2px;
+  text-align: center;
 }
 
 .loginButton{
@@ -40,6 +52,18 @@ button{
   margin: 5px auto 5px auto;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+/*.groceryList {
+  display: flex;
+  flex-flow: nowrap;
+  align-content: flex-start;
+  flex-direction: column;
+}*/
+
+.listItem {
+  font-size: 15px;
+  margin: 0 20px 0 5px; 
 }
 
 .recipeLib {
