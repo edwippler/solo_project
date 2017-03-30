@@ -36,3 +36,19 @@ button{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.recipeLib {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+
+.recipeCard {
+  max-width: 160px;
+  margin: 0 2px;
+}
+
+#faveTitle {
+  text-decoration: underline;
+}

@@ -1,11 +1,13 @@
-  <h4>Favorite Recipes</h4>
-<div ng-repeat="recipe in svc.savedInfo.user.saved" class="card card-outline-secondary">
+  <h4 id="faveTitle">Favorite Recipes</h4>
+<article class="recipeLib">
+<div ng-repeat="recipe in svc.savedInfo.user.saved" class="card recipeCard card-outline-secondary">
   <img src="{{recipe.imageURL}}" alt="recipe.title" class="savedPic card-img-top">
   <div class="card-block">
   <a class="card-title" href="{{recipe.sourceURL}}" target="_blank">{{recipe.title}}</a>
   <p class="card-text" ng-click="svc.removeRecipe(recipe)">&#10060;</p>
   </div>
 </div>
+</article>
 
 
 <!-- {{svc.savedInfo.user.saved}} -->
