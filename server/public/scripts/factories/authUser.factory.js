@@ -206,9 +206,10 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
 
   function logOut() {
     auth.$signOut().then(function() {
+    profile.user = [];
+  }).then(function(){
     getUserInfo();
-  // }).then(function(){
-  //   swal("Logged Out!", "You were successfully logged out!");
+    swal("Logged Out!", "You were successfully logged out!");
   });
   }
 

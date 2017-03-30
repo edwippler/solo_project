@@ -1,18 +1,21 @@
 <!-- {{scd.schedule.user.schedule}} -->
 <div ng-repeat="days in scd.schedule.user.schedule" class="container">
+  <form>
   <table class="table">
     <tr>
       <td class="col-xs-4"><label for="meal" data-index="">{{days.day}}</label></td>
-      <td class="col-xs-6"><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal" class="mealInput"></td>
-      <td class="col-xs-2"><button type="button" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
+      <td class="col-xs-6"><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"  class="mealInput"></td>
+      <td class="col-xs-2"><button type="submit" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
     <tr>
   </table>
+  <form>
 </div>
 <h4 ng-click="scd.clearList()">Start New Schedule</h4>
 <!-- {{scd.schedule.user._id}} -->
 
 
 <!-- NOTE: xeditable version, limitation of strings only can be passed back from DOM -->
+
 <!-- <label for="meal" data-index="">{{days.day}}</label>
 <span editable-text="days.meal" e-form="textBtnForm" ng-model="days.meal">
   {{ days.meal || 'empty' }}
