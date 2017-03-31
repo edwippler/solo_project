@@ -2,10 +2,10 @@
   <div class="card-block">
     <form>
       <h4><input type="text" ng-model="hc.search.criteria" placeholder="search by ingredient or recipe name" class="card-title homeSearch"></h4>
-      <button type="submit" name="button" ng-click="hc.findRecipes(hc.search.criteria)">Let's Get Cooking!</button>
-      <p class="card-text">*multiple ingredients must be separated by a comma</p>
-      <img src="https://static.pexels.com/photos/4626/food-plate-morning-breakfast.jpg" alt="happy plate" class="card-img detailPic"> <!-- stock photo image sourced from pexels.com-->
+      <button class="btn btn-danger" type="submit" name="button" ng-click="hc.findRecipes(hc.search.criteria)">Let's Get Cooking!</button>
+      <p class="card-text" id="searchNote">*multiple ingredients must be separated by a comma</p>
+      <img src="https://static.pexels.com/photos/4626/food-plate-morning-breakfast.jpg" alt="happy plate" class="card-img homePic"> <!-- stock photo image sourced from pexels.com-->
     </form>
-    <button type="button" name="button" class="card-footer loginButton" ng-click="hc.logIn()">Connect with Google</button>
+    <button type="button" name="button" class="card-footer loginButton btn btn-primary" ng-click="hc.logIn()">Connect with Google</button>
   </div>
 </div>

@@ -28,14 +28,17 @@
   <script type="text/javascript" src="/scripts/controllers/schedule.controller.js"></script>
   <script type="text/javascript" src="/scripts/controllers/grocery.controller.js"></script>
   <script type="text/javascript" src="/scripts/controllers/saved.controller.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="container-fluid">
-  <div class="container text-center well">
+  <div class="container text-center well border-top-0 rounded-bottom">
 
   <!-- <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header> -->
   <nav ng-include="'views/templates/nav.html'"></nav>
   <main ng-view></main>
+  <div class="row">
   <footer class="footer">&copy;Edmundo 2017</footer>
+  </div>
   </div>
 </body>
 </html>

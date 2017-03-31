@@ -1,11 +1,11 @@
-<article ng-if="scd.schedule.user.email != null">
-<div ng-repeat="days in scd.schedule.user.schedule" class="container">
+<article ng-if="scd.schedule.user.email != null" class="container">
+<div ng-repeat="days in scd.schedule.user.schedule">
   <form>
-  <table class="table col-xs-12">
+  <table class="scheduleDisplay">
     <tr>
-      <td class="col-xs-4"><label for="meal" data-index="">{{days.day}}</label></td>
-      <td class="col-xs-6"><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"  class="mealInput"></td>
-      <td class="col-xs-2"><button type="submit" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
+      <td><label for="meal" data-index="">{{days.day}}</label></td>
+      <td><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"  class="mealInput"></td>
+      <td><button type="submit" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
     <tr>
   </table>
   <form>
@@ -15,7 +15,7 @@
 
 <div ng-if="scd.schedule.user.email == null">
   <h3>Sorry, login required to access this feature!</h3>
-  <button type="button" ng-click="scd.logIn()">login</button>
+  <button class="btn btn-primary" type="button" ng-click="scd.logIn()">login</button>
 </div>
 <!-- {{scd.schedule.user._id}} -->
 

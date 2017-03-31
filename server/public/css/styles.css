@@ -1,11 +1,16 @@
 .resultPic {
-  height: 100px;
-  width: 100px;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 .detailPic {
-  max-width: 340px;
-  max-height: 400px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.homePic {
+  width: 90%;
+  height: 90%;
 }
 
 .savedPic {
@@ -32,10 +37,6 @@
   width: 305px;
 }
 
-.mealInput {
-  width: 250px;
-}
-
 .footer {
   margin-top: 50px;
   padding: 3px;
@@ -48,18 +49,18 @@
   margin-top: 30px;
 }
 
-button{
+/*button{
   margin: 5px auto 5px auto;
   padding-top: 5px;
   padding-bottom: 5px;
-}
+}*/
 
-/*.groceryList {
+.scheduleDisplay {
   display: flex;
   flex-flow: nowrap;
   align-content: flex-start;
-  flex-direction: column;
-}*/
+  justify-content: space-around;
+}
 
 .listItem {
   font-size: 15px;
@@ -95,4 +96,9 @@ button{
   margin-right: auto;
   max-width: 500px;
   text-align: center;
+}
+
+#searchNote {
+  font-style: italic;
+  font-size: 12px;
 }
