@@ -4,7 +4,9 @@ var connectionString = require('./database-config');
 // mongoose.set('debug', true);
 
 var connectToMongoDatabase = function(){
+  console.log(connectionString);
   mongoose.connect(connectionString);
+
 
   mongoose.connection.on('connected', function(){
     console.log('mongoose connected to ', connectionString);

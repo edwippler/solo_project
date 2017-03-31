@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var connectionString = require('../modules/database-config');
 
-// mongoose.connect('mongodb://localhost/wipit');
+mongoose.connect(connectionString);
 var daySchema = new Schema({
   day: String,
   meal: String
