@@ -11,6 +11,8 @@
 .homePic {
   width: 90%;
   height: 90%;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .savedPic {
