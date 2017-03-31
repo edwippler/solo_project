@@ -2,10 +2,10 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
+var mongoConnection = require('./modules/mongo-connection');
 var decoder = require('./modules/decoder');
 var recipeRoute = require('./routes/recipe.routes.js');
 var userRoute = require ('./routes/user.routes.js');
-var mongoConnection = require('./modules/mongo-connection');
 
 var portDecision = process.env.PORT || 5000;
 

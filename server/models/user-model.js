@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/wipit');
+// mongoose.connect('mongodb://localhost/wipit');
 var daySchema = new Schema({
   day: String,
   meal: String
