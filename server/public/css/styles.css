@@ -64,6 +64,15 @@
   justify-content: space-around;
 }
 
+#scheduleFields{
+  margin-top: 15px;
+  text-align: left !important;
+}
+
+#newSchedule {
+  text-align: center;
+}
+
 .listItem {
   font-size: 15px;
   margin: 0 20px 0 5px;
@@ -89,9 +98,6 @@
   background-color: whitesmoke;
 }
 
-/*.container-fluid {
-  background-color: whitesmoke;
-}*/
 
 .container {
   background-color: paleturquoise;
@@ -112,4 +118,8 @@
 #navExpand {
   max-width: 125%;
   margin:-15px -30px 0 -30px;
+}
+
+.btn-sm {
+  padding: 3px;
 }
