@@ -1,11 +1,11 @@
 <article ng-if="scd.schedule.user.email != null">
 <div ng-repeat="days in scd.schedule.user.schedule">
   <form id="scheduleFields">
-  <table class="scheduleDisplay table">
+  <table class="scheduleDisplay table table-responsive">
     <tr>
-      <td><label for="meal">{{days.day}}</label></td>
-      <td><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"  class="mealInput"></td>
-      <td><button class="btn btn-danger btn-sm" type="submit" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
+      <td><label class="scheduleDay" for="meal">{{days.day}}</label></td>
+      <td class="scheduleItem"><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"  class="mealInput"></td>
+      <td class="scheduleBtn"><button class="btn btn-danger btn-sm" type="submit" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
     <tr>
   </table>
   <form>
