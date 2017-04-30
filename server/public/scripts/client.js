@@ -34,6 +34,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
             controller: 'DetailsController',
             controllerAs: 'details'
         })
+        .when ('/register', {
+          templateUrl: '/views/register.html',
+          controller: 'RegisterController',
+          controllerAs: 'rc'
+        })
         .otherwise ( {
             redirectTo: '/home'
         });
