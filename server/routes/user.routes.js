@@ -282,4 +282,10 @@ router.put('/resetMeals', function(req, res){
           });
         });
 
+router.put('/register', function(req, res){
+  var newUser = req.body;
+  console.log(newUser);
+  res,sendStatus(200);
+});
+
 module.exports = router;

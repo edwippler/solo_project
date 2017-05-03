@@ -1,11 +1,12 @@
-myApp.controller('RegisterController', ['$firebaseAuth', function ($firebaseAuth){
+myApp.controller('RegisterController', ['AuthUserFactory' function (AuthUserFactory){
 
   console.log('check, check, regiter running');
   var self = this;
-  self.test = 'Testing on DOM';
+  self.newUser = {};
 
-  self.tacoTruck = function (){
-    console.log('Yeaah, tacos');
+  self.confirmUser = function (){
+    console.log('confirming this is on');
+    // AuthUserFactory.createUser();
   }
 
 }]);

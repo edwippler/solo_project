@@ -214,6 +214,18 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
   });
   }
 
+function createUser(person) {
+    // var provider = new firebase.auth.GoogleAuthProvider();
+  $http({
+    method: 'POST',
+    url: '/user/register',
+    data: person
+  }).then(function(response){
+    console.log(response);
+  })
+}
+
+
   return{
     profile: profile,
     logIn: logIn,
@@ -224,7 +236,8 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
     removeGroceryItem: removeGroceryItem,
     emptyList: emptyGroceryList,
     saveRecipe: saveRecipe,
-    removeRecipe: removeRecipe
+    removeRecipe: removeRecipe,
+    createUser: createUser
   }
 
 }]);
