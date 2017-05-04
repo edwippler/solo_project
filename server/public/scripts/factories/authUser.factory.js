@@ -216,6 +216,7 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
 
 function createUser(person) {
     // var provider = new firebase.auth.GoogleAuthProvider();
+    console.log('user to post',person);
   $http({
     method: 'POST',
     url: '/user/register',
