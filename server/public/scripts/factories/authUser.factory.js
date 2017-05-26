@@ -5,7 +5,7 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
   var profile = {user: []};
 
   function logIn() {
-    auth.$signInWithPopup('google').then(function(firebaseUser){
+    auth.$signInWithRedirect('google').then(function(firebaseUser){
       console.log('Firebase Authenticated as: ', firebaseUser.user.displayName);
       swal('Welcome '+ firebaseUser.user.displayName +'!');
     }).catch(function(error){

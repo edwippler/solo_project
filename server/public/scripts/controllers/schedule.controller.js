@@ -21,4 +21,8 @@ myApp.controller('ScheduleController',['AuthUserFactory',function(AuthUserFactor
   self.clearList = function (){
   AuthUserFactory.resetSchedule(self.schedule.user._id);
   }
+
+  self.logIn = function() {
+    AuthUserFactory.logIn();
+  }
 }]);

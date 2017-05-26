@@ -1,26 +1,38 @@
 <article ng-if="grocery.list.user.email != null">
-<form>
-  <h4><input type="text" placeholder="Enter new list item" ng-model="grocery.newItem.name"/></h4>
-  <button type="submit" ng-click="grocery.addItem(grocery.newItem)">Add Item</button>
-</form>
+  <form>
+    <h4><input type="text" placeholder="Enter new list item" ng-model="grocery.newItem.name"/></h4>
+    <button  class="btn" type="submit" ng-click="grocery.addItem(grocery.newItem)">Add Item</button>
+  </form>
 
-<!-- Will use flexbox to display full span-->
-<div class="text-left">
-<table>
-  <tr ng-repeat="items in grocery.list.user.list">
-    <td>{{items}}</td>
-    <td><input type="checkbox" value="done"></td>
-    <td><button type="button" ng-click="grocery.removeItem(items)">&olcross;</button></td>
-  </tr>
-</table>
-</div>
-<div class="text-center">
-  <!--need to add sweet alerts to this section to confirm removal-->
-  <button class="text-center btn-info" type="button" ng-click="grocery.emptyList()">Clear List</button>
-</div>
+  <!-- Will use flexbox to display full span-->
+  <div class="text-left groceryList">
+    <table>
+      <thead>
+        <tr>
+          <th><!--spacer tag --></th>
+          <th>Check Items as Completed:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="items in grocery.list.user.list">
+          <td><input type="checkbox" value="done"></td>
+          <td><p class="listItem">{{items}}</p></td>
+          <td><p ng-click="grocery.removeItem(items)">&#10060;</p></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center">
+    <!--need to add sweet alerts to this section to confirm removal-->
+    <button class="text-center btn-info" type="button" ng-click="grocery.emptyList()">Clear List</button>
+  </div>
 </article>
 
 <div ng-if="grocery.list.user.email == null">
   <h3>No soup for you!</h3>
   <h4>Login required to access this feature.</h4>
+  <button class="btn btn-primary" type="button" ng-click="grocery.logIn()">Login</button>
 </div>
+
+<!-- NOTE:  -->
+<!-- <button type="button" ng-click="grocery.removeItem(items)" class="delButton"></button> -->

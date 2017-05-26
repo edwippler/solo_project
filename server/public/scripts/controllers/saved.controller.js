@@ -7,6 +7,10 @@ myApp.controller('SavedController',['AuthUserFactory',function(AuthUserFactory) 
   this.testMessage = 'This is the saved test message';
   self.removeRecipe = function(recipe){
     // console.log('Adios to this recipe:', recipe);
-    AuthUserFactory.removeRecipe(recipe); 
+    AuthUserFactory.removeRecipe(recipe);
+  }
+
+  self.logIn = function (){
+    AuthUserFactory.logIn(); 
   }
 }]);

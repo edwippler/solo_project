@@ -15,5 +15,6 @@ myApp.controller('NavController', ['AuthUserFactory', function(AuthUserFactory) 
 
   self.logOut = function() {
     AuthUserFactory.logOut();
+    self.toggleNav();
   };
 }]); // end controller code block

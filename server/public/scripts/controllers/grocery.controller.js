@@ -35,4 +35,8 @@ self.removeItem = function(item) {
   AuthUserFactory.removeGroceryItem(clicked);
 }
 
+self.logIn = function() {
+  AuthUserFactory.logIn();
+}
+
 }]);

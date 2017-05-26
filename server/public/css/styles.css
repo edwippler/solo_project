@@ -1,11 +1,19 @@
 .resultPic {
-  height: 100px;
-  width: 100px;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 .detailPic {
-  max-width: 340px;
-  max-height: 400px;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 17px;
+}
+
+.homePic {
+  width: 90%;
+  height: 90%;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 .savedPic {
@@ -14,32 +22,79 @@
 }
 
 .saveButton {
-  position: fixed;
+  float: right;
+  position: relative;
   top: auto;
-  right: 50px;
+  right: 25%;
+  margin-top: 17px;
+  z-index: 999;
+  background-color: whitesmoke;
+}
+
+.saveButton:hover{
+  color: goldenrod;
+}
+
+.delButton {
+  text-align: center;
 }
 
 .homeSearch {
   width: 305px;
 }
 
-.mealInput {
-  width: 250px;
-}
-
 .footer {
   margin-top: 50px;
-  padding: 10px;
+  padding: 3px;
+  position: relative;
+  bottom: 2px;
+  text-align: center;
 }
 
 .loginButton{
   margin-top: 30px;
 }
 
-button{
+/*button{
   margin: 5px auto 5px auto;
   padding-top: 5px;
   padding-bottom: 5px;
+}*/
+
+/*.scheduleDisplay {
+  display: flex;
+  flex-flow: nowrap;
+  align-content: flex-start;
+  justify-content: space-around;
+  margin-top: 20px;
+}*/
+.scheduleDay {
+  align-self: flex-start;
+  text-align: left !important;
+}
+
+
+.scheduleItem {
+  align-self: center !important;
+}
+
+#scheduleFields{
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  /*text-align: left !important;*/
+  max-width: 500px;
+}
+
+
+
+#newSchedule {
+  text-align: center;
+}
+
+.listItem {
+  font-size: 15px;
+  margin: 0 20px 0 5px;
 }
 
 .recipeLib {
@@ -56,4 +111,34 @@ button{
 
 #faveTitle {
   text-decoration: underline;
+}
+
+.backDrop {
+  background-color: whitesmoke;
+}
+
+
+.container {
+  background-color: paleturquoise;
+}
+
+.details {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+#searchNote {
+  font-style: italic;
+  font-size: 12px;
+}
+
+#navExpand {
+  max-width: 125%;
+  margin:-15px -30px 0 -30px;
+}
+
+.btn-sm {
+  padding: 3px;
 }

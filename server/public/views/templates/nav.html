@@ -1,4 +1,5 @@
 <!--the hashbang stuff goes here-->
+<div class="container-fluid">
 <nav ng-controller="NavController as nc" class="navbar navbar-toggleable-xs navbar-inverse static-top" id="navExpand">
   <div class="navbar-header">
   <a class="navbar-brand" href="#!home">Wip It Up</a>
@@ -9,10 +10,10 @@
   </button>
     </div>
   <ul class="nav navbar-nav navbar-right list-unstyled navbar-collapse" uib-collapse="nc.isCollapsed">
-    <li class="nav-item"><a class="nav-link" href="#!search">Search Recipes</a></li>
-    <li class="nav-item"><a class="nav-link" href="#!schedule">Weekly Schedule</a></li>
-    <li class="nav-item"><a class="nav-link" href="#!groceryList">Grocery List</a></li>
-    <li class="nav-item"><a class="nav-link" href="#!saved">Saved Recipes</a></li>
+    <li class="nav-item"><a class="nav-link" href="#!search" ng-click="nc.toggleNav()">Search Recipes</a></li>
+    <li class="nav-item"><a class="nav-link" href="#!schedule" ng-click="nc.toggleNav()">Weekly Schedule</a></li>
+    <li class="nav-item"><a class="nav-link" href="#!groceryList" ng-click="nc.toggleNav()">Grocery List</a></li>
+    <li class="nav-item"><a class="nav-link" href="#!saved" ng-click="nc.toggleNav()">Saved Recipes</a></li>
     <li class="nav-item" uib-dropdown> <a href="#" uib-dropdown-toggle ng-click="nc.toggleDropdown()">Options<span class="caret"></span></a>
     <ul class="dropdown-menu" uib-dropdown-menu role="menu">
       <li role="menuitem" ng-click="nc.logOut()"><a href="#!home">Log Out</a></li>
@@ -20,3 +21,4 @@
   </li>
   </ul>
 </nav>
+</div>

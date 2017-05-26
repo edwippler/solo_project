@@ -1,24 +1,25 @@
 <article ng-if="scd.schedule.user.email != null">
-<div ng-repeat="days in scd.schedule.user.schedule" class="container">
-  <form>
-  <table class="table col-xs-12">
+<div ng-repeat="days in scd.schedule.user.schedule">
+  <form id="scheduleFields">
+  <table class="scheduleDisplay table table-responsive">
     <tr>
-      <td class="col-xs-4"><label for="meal" data-index="">{{days.day}}</label></td>
-      <td class="col-xs-6"><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"  class="mealInput"></td>
-      <td class="col-xs-2"><button type="submit" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
+      <td><label class="scheduleDay" for="meal">{{days.day}}</label></td>
+      <td class="scheduleItem"><input type="text" name="meal" placeholder="{{days.meal}}" ng-model="days.meal"  class="mealInput"></td>
+      <td class="scheduleBtn"><button class="btn btn-danger btn-sm" type="submit" name="button" ng-click="scd.addMeal(days, $index)">Save</button>
     <tr>
   </table>
   <form>
 </div>
-<h4 ng-click="scd.clearList()">Start New Schedule</h4>
+<h4 id="newSchedule" ng-click="scd.clearList()">Start New Schedule</h4>
 </article>
 
 <div ng-if="scd.schedule.user.email == null">
   <h3>Sorry, login required to access this feature!</h3>
+  <button class="btn btn-primary" type="button" ng-click="scd.logIn()">login</button>
 </div>
 <!-- {{scd.schedule.user._id}} -->
 
-
+ <!-- class="container" -->
 <!-- NOTE: xeditable version, limitation of strings only can be passed back from DOM -->
 
 <!-- <label for="meal" data-index="">{{days.day}}</label>
