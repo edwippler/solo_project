@@ -1,15 +1,15 @@
 myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $firebaseAuth) {
   console.log('AuthUserFactory running');
 
-  var auth = $firebaseAuth();
-  var profile = {user: []};
+  let auth = $firebaseAuth();
+  let profile = {user: []};
 
   function logIn() {
     auth.$signInWithPopup('google').then(function(firebaseUser){
-      console.log('Firebase Authenticated as: ', firebaseUser.user.displayName);
-      swal('Welcome '+ firebaseUser.user.displayName +'!');
+      console.log(`Firebase Authenticated as: ${firebaseUser.user.displayName}`);
+      swal(`Welcome ${firebaseUser.user.displayName}!`);
     }).catch(function(error){
-      console.log('Authentication failed: ', error);
+      console.log(`Authentication failed: ${error}`);
     });
   }
 
@@ -17,9 +17,9 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
     getUserInfo();
   })
 
-
+  // User Info Seciton //
   function getUserInfo() {
-    var firebaseUser = auth.$getAuth(); //will be necessary for other $http requests
+    let firebaseUser = auth.$getAuth(); //will be necessary for other $http requests
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
         $http({
@@ -38,8 +38,9 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
     }
   }
 
+  // Meal planner section //
   function addMeal(thing) {
-    var firebaseUser = auth.$getAuth();
+    let firebaseUser = auth.$getAuth();
     // console.log(thing);
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
@@ -60,7 +61,7 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
   }
 
   function resetSchedule(id) {
-    var firebaseUser = auth.$getAuth();
+    let firebaseUser = auth.$getAuth();
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
         userID = {id: id}
@@ -80,8 +81,9 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
     }
   }
 
+  // Grocery List Section
   function addGroceryItem(someNewItem) {
-    var firebaseUser = auth.$getAuth();
+    let firebaseUser = auth.$getAuth();
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
         // console.log('factory log:', someNewItem);
@@ -103,7 +105,7 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
   }
 
   function removeGroceryItem(item) {
-    var firebaseUser = auth.$getAuth();
+    let firebaseUser = auth.$getAuth();
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
         $http({
@@ -125,7 +127,7 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
 
 
   function emptyGroceryList(userID) {
-    var firebaseUser = auth.$getAuth();
+    let firebaseUser = auth.$getAuth();
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
           $http({
@@ -147,9 +149,10 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
     }
   }
 
+  // Recipe section
   function saveRecipe(recipe) {
     recipe.userID = profile.user._id;
-    var firebaseUser = auth.$getAuth();
+    let firebaseUser = auth.$getAuth();
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
         // console.log(recipe);
@@ -172,7 +175,7 @@ myApp.factory('AuthUserFactory', ['$http','$firebaseAuth', function($http, $fire
 
   function removeRecipe(recipe) {
     recipe.userID = profile.user._id;
-    var firebaseUser = auth.$getAuth();
+    let firebaseUser = auth.$getAuth();
     if (firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
         swal({

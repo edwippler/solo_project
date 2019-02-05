@@ -1,9 +1,9 @@
-var router = require('express').Router();
-var User = require('../models/user-model');
+const router = require('express').Router();
+let User = require('../models/user-model');
 
 //retrieving user information from database
 router.get('/', function(req, res){
-  var userEmail = req.decodedToken.email;
+  let userEmail = req.decodedToken.email;
   console.log('hit my get user route');
   User.findOne({email: userEmail}, function(err, result){
     if (err) {
@@ -24,9 +24,9 @@ router.get('/', function(req, res){
 // // NOTE: Beginning of shcedule section // //
 //update the schedule array of objects
 router.put('/meals', function(req, res){
-  var userEmail = req.decodedToken.email;
-  var newMeal = req.body;
-  var dayIndex = {};
+  let userEmail = req.decodedToken.email;
+  let newMeal = req.body;
+  let dayIndex = {};
   dayIndex['schedule.'+newMeal.index+'.meal'] = newMeal.meal
   console.log('hit the update meal route');
 
@@ -65,10 +65,10 @@ router.put('/meals', function(req, res){
 //update the schedule array of objects
 router.put('/resetMeals', function(req, res){
   console.log('hit reset route');
-  var userEmail = req.decodedToken.email;
-  var userID = req.body;
-  var noSchedule = 7; //limits the number of days to 7
-  var dayIndex = {};
+  let userEmail = req.decodedToken.email;
+  let userID = req.body;
+  let noSchedule = 7; //limits the number of days to 7
+  let dayIndex = {};
   User.findOne({ email: userEmail }, function (err, user) {
     if (err) {
       console.log('Error completing query:', err);
@@ -105,10 +105,10 @@ router.put('/resetMeals', function(req, res){
   // // NOTE: beginning of grocery section // //
   //add item to grocery list
   router.put('/grocery', function(req, res) {
-    var userEmail = req.decodedToken.email;
+    let userEmail = req.decodedToken.email;
     console.log('hit groceryList put route');
     // console.log('here is the body ->', req.body);
-    var groceryObject = req.body;
+    let groceryObject = req.body;
     console.log(groceryObject);
 
     User.findOne({ email: userEmail }, function (err, user) {
@@ -141,9 +141,9 @@ router.put('/resetMeals', function(req, res){
 
   //remove grocery list item
   router.put('/removeGrocery', function(req, res) {
-    var userEmail = req.decodedToken.email;
+    let  userEmail = req.decodedToken.email;
     console.log('hit grocery List remove route');
-    var removeObject = req.body;
+    let removeObject = req.body;
     // console.log(removeObject);
     User.findOne({ email: userEmail }, function (err, user) {
       if (err) {
@@ -175,7 +175,7 @@ router.put('/resetMeals', function(req, res){
 
     //clear grocery list
     router.put('/emptyList', function(req, res) {
-      var userEmail = req.decodedToken.email;
+      let userEmail = req.decodedToken.email;
       console.log('hit clear groceryList route');
       User.findOne({ email: userEmail }, function (err, user) {
         if (err) {
@@ -187,7 +187,7 @@ router.put('/resetMeals', function(req, res){
             console.log('No user found with that email:', userEmail);
             res.sendStatus(403);
           }else {
-            var userObject = req.body;
+            let userObject = req.body;
             User.findByIdAndUpdate(
               userObject.id,
               {
@@ -210,9 +210,9 @@ router.put('/resetMeals', function(req, res){
     // // NOTE: beginning of saved recipe section // //
     //add item to saved recipes
     router.put('/saved', function(req, res) {
-      var userEmail = req.decodedToken.email;
+      let userEmail = req.decodedToken.email;
       console.log('hit save recipe put route');
-      var recipeObject = req.body;
+      let recipeObject = req.body;
       User.findOne({ email: userEmail }, function (err, user) {
         if (err) {
           console.log('Error completing query:', err);
@@ -250,9 +250,9 @@ router.put('/resetMeals', function(req, res){
     // NOTE: beginning of saved recipe section //
     //add item to saved recipes
     router.put('/unsave', function(req, res) {
-      var userEmail = req.decodedToken.email;
+      let userEmail = req.decodedToken.email;
       console.log('hit delete recipe route');
-      var recipeObject = req.body;
+      let recipeObject = req.body;
       // console.log(recipeObject);
       User.findOne({ email: userEmail }, function (err, user) {
         if (err) {

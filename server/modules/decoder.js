@@ -1,4 +1,4 @@
-var admin = require("firebase-admin");
+const admin = require("firebase-admin");
 
 if (process.env.FIREBASE_SERVICE_ACCOUNT_PRIVATE_KEY) {
   admin.initializeApp({
@@ -25,7 +25,7 @@ admin.initializeApp({
 /* This is where the magic happens. We pull the id_token off of the request,
 verify it against our firebase service account private_key.
 Then we add the decodedToken */
-var tokenDecoder = function(req, res, next){
+let tokenDecoder = function(req, res, next){
   if (req.headers.id_token) {
     admin.auth().verifyIdToken(req.headers.id_token).then(function(decodedToken) {
       // Adding the decodedToken to the request so that downstream processes can use it

@@ -1,5 +1,5 @@
 myApp.controller('NavController', ['AuthUserFactory', function(AuthUserFactory) {
-  var self = this;
+  const self = this;
   // console.log('nav controller running');
   self.testMessage = 'Hello World, this is the nav controller test message';
   self.isCollapsed = true;

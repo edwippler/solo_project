@@ -1,5 +1,5 @@
 myApp.controller('HomeController', ['DataFactory', 'AuthUserFactory', '$location', '$firebaseAuth', '$routeParams', function(DataFactory, AuthUserFactory, $location, $firebaseAuth, $routeParams){
-  var self = this;
+  const self = this;
   // console.log('home controller running');
   self.search = {};
 
