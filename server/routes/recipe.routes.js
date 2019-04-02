@@ -1,16 +1,16 @@
-var router = require('express').Router();
-var request = require('request-promise');
-var dotenv = require('dotenv').config();
+const router = require('express').Router();
+const request = require('request-promise');
+const dotenv = require('dotenv').config();
 
 
 // var baseURL = "http://food2fork.com/api/";
-var key = process.env.FOOD_2_FORK_KEY;
+const key = process.env.FOOD_2_FORK_KEY;
 
 //base
 router.get('/', function(req, res) {
-  var criteria = req.query;
+  let criteria = req.query;
   // console.log(criteria);
-  var options = {
+  let options = {
     uri:'http://food2fork.com/api/search',
     qs:{
       key: key,
@@ -34,9 +34,9 @@ router.get('/', function(req, res) {
 });//end of search route
 
 router.get('/details/:id', function(req, res) {
-  var recipeID = req.params.id;
+  let recipeID = req.params.id;
   console.log(recipeID);
-  var options = {
+  let options = {
     uri:'http://food2fork.com/api/get',
     qs:{
       key: key,

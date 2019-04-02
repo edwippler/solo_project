@@ -1,7 +1,7 @@
 myApp.controller('SearchController', ['DataFactory', 'AuthUserFactory', '$location', '$firebaseAuth', function(DataFactory, AuthUserFactory, $location, $firebaseAuth) {
 
 console.log('Search controller running');
-var self = this;
+const self = this;
 
 self.errorMessage = '';
 // self.placeholder = DataFactory.holder;
@@ -9,6 +9,7 @@ self.errorMessage = '';
 self.search = {};
 self.returnedRecipes = DataFactory.results;
 if (self.returnedRecipes.list.length === 0) {
+  //TODO: Convert error message to constants
   self.errorMessage = 'Please check your search spelling or try changing the criteria if you want more results.'
 }
 
@@ -28,7 +29,7 @@ self.moreDetails = function(recipeID) {
 
 self.saveRecipe = function(recipe) {
   // console.log('recipe to save:', recipe);
-  var saveInfo = {
+  let saveInfo = {
     title: recipe.title,
     imageURL: recipe.image_url,
     recipeID: recipe.recipe_id,

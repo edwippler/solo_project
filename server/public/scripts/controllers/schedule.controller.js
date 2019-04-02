@@ -1,7 +1,7 @@
 myApp.controller('ScheduleController',['AuthUserFactory',function(AuthUserFactory) {
 
   console.log('Schedule controller running');
-  var self = this;
+  const self = this;
   self.testMessage = 'This is the schedule test message';
   self.schedule = AuthUserFactory.profile;
 
@@ -9,13 +9,13 @@ myApp.controller('ScheduleController',['AuthUserFactory',function(AuthUserFactor
 
   self.addMeal = function(plan, index){
     // console.log('The plan for', plan.day, 'is', plan.meal, 'at index', index);
-    var thing = {
+    const mealObject = {
       meal: plan.meal,
       // day: plan.day,
       index: index,
       id: self.schedule.user._id
     };
-    AuthUserFactory.addMeal(thing);
+    AuthUserFactory.addMeal(mealObject);
   }
 
   self.clearList = function (){

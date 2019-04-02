@@ -1,21 +1,21 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var connectionString = require('../modules/database-config');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const connectionString = require('../modules/database-config');
 
 mongoose.connect(connectionString);
 
 mongoose.connection.on('connected', function(){
-  console.log('mongoose connected to ', connectionString);
+  console.log(`mongoose connected to: ${connectionString}`);
 });
 
 mongoose.connection.on('error', function(err){
-  console.log('mongoose failed ot connect because error:', err);
+  console.log(`mongoose failed ot connect because error: ${err}`);
 });
-var daySchema = new Schema({
+let daySchema = new Schema({
   day: String,
   meal: String
 });
-var savedSchema = new Schema({
+let savedSchema = new Schema({
   imageURL: String,
   title: String,
   sourceURL: String,

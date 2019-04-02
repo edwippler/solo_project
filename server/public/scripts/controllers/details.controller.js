@@ -1,13 +1,13 @@
 myApp.controller('DetailsController', ['DataFactory', 'AuthUserFactory', '$location', '$firebaseAuth', function(DataFactory, AuthUserFactory, $location, $firebaseAuth) {
 
 console.log('Details controller running');
-var self = this;
+const self = this;
 
 self.recipeDetails = DataFactory.details;
 
 self.saveRecipe = function(recipe) {
   // console.log('recipe to save:', recipe);
-  var saveInfo = {
+  let saveInfo = {
     title: recipe.title,
     imageURL: recipe.image_url,
     recipeID: recipe.recipe_id,
