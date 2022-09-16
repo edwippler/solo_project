@@ -9,7 +9,7 @@
     "angular-ui-bootstrap": "^2.5.0",
     "angular-xeditable": "^0.7.0",
     "body-parser": "^1.18.3",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "dotenv": "^4.0.0",
     "express": "^4.16.4",
     "firebase-admin": "^4.1.3",
